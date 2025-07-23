@@ -1,0 +1,79 @@
+🚀 Gerador de Descrições e Títulos para YouTube com IA
+Bem-vindo ao Gerador de Conteúdo para YouTube! Este projeto consiste em duas ferramentas web simples e poderosas, projetadas para ajudar criadores de conteúdo a otimizar seus vídeos com títulos e descrições gerados por Inteligência Artificial, utilizando a API da Groq.
+
+!(https://placehold.co/800x450/1f2937/ffffff?text=Demonstra%C3%A7%C3%A3o+da+App)
+
+✨ Funcionalidades
+Este repositório contém o código para duas aplicações:
+
+Gerador de Títulos:
+
+Gera títulos de vídeo virais e otimizados para SEO.
+
+Permite escolher o estilo do título (Clickbait, Educacional, etc.).
+
+Define o número de sugestões desejadas.
+
+Gerador de Descrições:
+
+Cria descrições completas e bem estruturadas.
+
+Inclui gancho inicial, parágrafos detalhados, CTAs (Chamadas para Ação) e hashtags.
+
+Permite definir o tom da descrição (Amigável, Profissional, etc.).
+
+Botão para copiar facilmente o conteúdo gerado.
+
+🛠️ Tecnologias Utilizadas
+Frontend: HTML5, CSS3, JavaScript (ES6+)
+
+Estilização: Tailwind CSS
+
+Inteligência Artificial: Groq API com o modelo Llama 3.
+
+Fontes: Google Fonts (Inter)
+
+📂 Estrutura do Projeto
+O código está organizado de forma clara e modular para facilitar a manutenção e o entendimento.
+
+/projeto-youtube-generator/
+├── 📄 index.html      # Estrutura principal da página
+├── 🎨 style.css       # Estilos personalizados
+└── ⚙️ script.js       # Lógica da aplicação e chamadas de API
+└── 📖 README.md       # Este arquivo
+
+🚀 Como Executar o Projeto
+Para executar este projeto localmente, siga estes passos simples:
+
+Clone o repositório:
+
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+Navegue até a pasta do projeto:
+
+cd seu-repositorio
+
+Obtenha sua chave da API da Groq:
+
+Vá para o site da Groq.
+
+Crie uma conta gratuita e gere uma nova chave de API.
+
+Abra o arquivo index.html:
+
+Abra o arquivo index.html no seu navegador de preferência.
+
+Use a aplicação:
+
+Insira a sua chave da API da Groq no campo correspondente.
+
+Preencha os outros campos (tema, palavras-chave, etc.).
+
+Clique em "Gerar" e veja a mágica acontecer!
+
+Nota de Segurança: A sua chave de API é utilizada apenas no lado do cliente (no seu navegador) para fazer as requisições diretamente para a Groq e não é armazenada em nenhum lugar.
+
+📄 Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+Feito com ❤️ por [Seu Nome/Usuário] para a comunidade de criadores de conteúdo!
