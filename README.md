@@ -51,8 +51,7 @@ Para executar este projeto localmente, siga estes passos simples:
 
 Clone o repositório:
 
-git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/PauloJeffersonX/projetoyoutube.git)
-
+[Git Clone](https://github.com/PauloJeffersonX/projetoyoutube.git)
 Navegue até a pasta do projeto:
 
 cd seu-repositorio
