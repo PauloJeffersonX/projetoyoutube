@@ -6,7 +6,7 @@
 Bem-vindo ao Gerador de Conteúdo para YouTube! Este projeto consiste em duas ferramentas web simples e poderosas, projetadas para ajudar criadores de conteúdo a otimizar seus vídeos com títulos e descrições gerados por Inteligência Artificial, utilizando a API da Groq.
 
 <p align="center">
-<img src="https://www.google.com/search?q=https://placehold.co/800x450/1f2937/ffffff%3Ftext%3DDemonstra%25C3%25A7%25C3%25A3o%2Bda%2BApp" alt="Demonstração da Aplicação">
+<img src="https://console.groq.com/keys" alt="Demonstração da Aplicação">
 </p>
 
 ✨ Funcionalidades Principais
