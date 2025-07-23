@@ -96,5 +96,5 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 <hr>
 
 <p align="center">
-Feito com ❤️ por [Seu Nome/Usuário] para a comunidade de criadores de conteúdo!
+Feito com ❤️ por PauloJeffersonX para a comunidade de criadores de conteúdo!
 </p>
