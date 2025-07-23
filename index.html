@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Descrições para YouTube</title>
+    
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-red-600 dark:text-red-500">Gerador de Descrições para YouTube</h1>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">Crie descrições completas e otimizadas para seus vídeos com IA.</p>
+        </header>
+
+        <main class="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Coluna de Inputs -->
+                <div class="space-y-6">
+                    <div>
+                        <label for="apiKey" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sua Chave API (Groq)</label>
+                        <input type="password" id="apiKey" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-3 text-sm focus:ring-red-500 focus:border-red-500" placeholder="gsk_...">
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Sua chave é usada apenas no seu navegador e não é armazenada.</p>
+                    </div>
+
+                    <div>
+                        <label for="videoTopic" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tema Principal do Vídeo</label>
+                        <input type="text" id="videoTopic" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-3 text-sm focus:ring-red-500 focus:border-red-500" placeholder="Ex: Como fazer o melhor churrasco">
+                    </div>
+
+                    <div>
+                        <label for="keywords" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Palavras-chave (separadas por vírgula)</label>
+                        <input type="text" id="keywords" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-3 text-sm focus:ring-red-500 focus:border-red-500" placeholder="Ex: picanha, ponto da carne, carvão">
+                    </div>
+
+                    <div>
+                        <label for="descriptionTone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tom da Descrição</label>
+                        <select id="descriptionTone" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-3 text-sm focus:ring-red-500 focus:border-red-500">
+                            <option>Amigável e Informal</option>
+                            <option>Profissional e Informativo</option>
+                            <option>Engraçado e Divertido</option>
+                            <option>Inspirador e Motivacional</option>
+                            <option>Direto ao Ponto (Técnico)</option>
+                        </select>
+                    </div>
+                    
+                    <button id="generateButton" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-800 flex items-center justify-center">
+                        <svg id="button-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                        </svg>
+                        <span id="button-text">Gerar Descrição</span>
+                    </button>
+                </div>
+
+                <!-- Coluna de Resultados -->
+                <div class="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 h-[450px] md:h-full flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Descrição Gerada</h2>
+                        <button id="copyButton" title="Copiar Descrição" class="hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        </button>
+                    </div>
+                    <div id="results" class="flex-grow space-y-3 overflow-y-auto pr-2 bg-white dark:bg-gray-800 rounded-md">
+                        <!-- Loader -->
+                        <div id="loader" class="hidden justify-center items-center h-full">
+                            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+                        </div>
+                        <!-- Mensagem de erro -->
+                        <div id="errorMessage" class="hidden text-center text-red-500 p-4 bg-red-100 dark:bg-red-900/50 rounded-lg"></div>
+                        <!-- Placeholder inicial -->
+                        <div id="placeholder" class="text-center text-gray-500 dark:text-gray-400 flex flex-col justify-center items-center h-full p-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <p>A descrição gerada aparecerá aqui.</p>
+                        </div>
+                        <textarea id="results-textarea" readonly class="w-full h-full p-3 bg-transparent resize-none hidden focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="text-center mt-8 text-sm text-gray-500 dark:text-gray-400">
+            <p>Desenvolvido para criadores de conteúdo.</p>
+        </footer>
+    </div>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
